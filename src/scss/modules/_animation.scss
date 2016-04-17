@@ -1,0 +1,26 @@
+$size-sm: 64;
+
+@mixin animate($size:$size, $steps:4, $frame-length:.12, $scale:4) {
+  @keyframes moveBackground {
+    100% {background-position: ($steps*100%) 100%}
+  }
+  animation: moveBackground ($frame-length*$steps+s) steps($steps) infinite;
+  background-size: $scale*100%;
+  height: ($size*$scale)+px;
+  width: ($size*$scale)+px;
+  animation-fill-mode: both;
+  backface-visibility: hidden;
+}
+
+.animation {
+  float: left;
+}
+
+.animation--goof {
+  @include animate($size:$size-sm, $steps:4, $frame-length:.12, $scale:4);
+  background-image: url(../../assets/img/character-test_idle.svg)
+}
+
+.animation--goof_idle {
+
+}
