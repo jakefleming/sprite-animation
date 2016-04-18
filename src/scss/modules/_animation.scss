@@ -2,7 +2,7 @@ $size-sm: 64;
 
 @mixin animate($size:$size, $steps:4, $frame-length:.12, $scale:4) {
   @keyframes moveBackground#{$steps} {
-    100% {background-position: ($steps*100%) 100%}
+    100% {background-position: -($steps*100%) 100%}
   }
   animation: moveBackground#{$steps} + ' ' + ($frame-length*$steps+s) steps($steps) infinite;
   background-size: (($steps*$size)*$scale+px) 100%;
@@ -16,15 +16,11 @@ $size-sm: 64;
   float: left;
 }
 
-.animation--goof {
-
-}
-
 .animation--goof_idle {
   @include animate($size:$size-sm, $steps:4, $frame-length:.12, $scale:4);
   background-image: url(../../assets/img/character-test_idle.svg)
 }
 .animation--goof_walk {
-  @include animate($size:$size-sm, $steps:6, $frame-length:.12, $scale:4);
+  @include animate($size:$size-sm, $steps:8, $frame-length:.08, $scale:4);
   background-image: url(../../assets/img/character-test_walk.svg)
 }
